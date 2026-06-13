@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>KOSTEDX 인공어 명세서</title>
+    <style>
+        /* 기본 레이아웃 및 여백 정의 */
+        body {
+            margin: 0;
+            padding: 40px;
+            font-family: 'Apple SD Gothic Neo', 'Malgun Gothic', Arial, sans-serif;
+            color: #2d3748;
+            line-height: 1.7;
+            background-color: #f4f6f9;
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        /* 메인 상단 디자인 배너 */
+        .banner {
+            background-color: #002147;
+            color: #ffffff;
+            padding: 35px 30px;
+            border-bottom: 5px solid #001122;
+            border-radius: 6px;
+            margin-bottom: 30px;
+        }
+
+        .banner h1 {
+            margin: 0;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .banner p {
+            margin: 8px 0 0 0;
+            font-size: 14px;
+            color: #cbd5e0;
+        }
+
+        /* 요약 그리드 테이블 */
+        .info-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .info-table td {
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            font-size: 14px;
+        }
+
+        .label-cell {
+            background-color: #eef2f7;
+            font-weight: bold;
+            width: 20%;
+            color: #1a2634;
+        }
+
+        /* 타이틀 스타일링 */
+        h2 {
+            font-size: 20px;
+            color: #002147;
+            border-left: 5px solid #002147;
+            padding-left: 12px;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+
+        h3 {
+            font-size: 16px;
+            color: #003366;
+            margin-top: 25px;
+            margin-bottom: 12px;
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 18px;
+            text-align: justify;
+        }
+
+        /* 나무위키식 인용구/예문 박스 구현 */
+        .quote-box {
+            background-color: #ffffff;
+            border-left: 4px solid #002147;
+            padding: 15px;
+            margin: 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .quote-box .original {
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+            color: #002147;
+            font-size: 15px;
+            margin-bottom: 5px;
+        }
+
+        .quote-box .translation {
+            color: #4a5568;
+            font-size: 14px;
+        }
+
+        /* 데이터 테이블 공통 스타일 */
+        table.data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        table.data-table th, table.data-table td {
+            border: 1px solid #e2e8f0;
+            padding: 10px 14px;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        table.data-table th {
+            background-color: #002147;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        table.data-table tr:nth-child(even) td {
+            background-color: #f8fafc;
+        }
+
+        .center {
+            text-align: center !important;
+        }
+
+        /* 코드 및 변환식 박스 */
+        .code-block {
+            background-color: #2d3748;
+            color: #f7fafc;
+            padding: 15px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 13px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            white-space: pre-wrap;
+        }
+
+        /* 특수 강조 표기 */
+        .badge {
+            display: inline-block;
+            padding: 2px 6px;
+            background-color: #eef2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="banner">
+        <h1>콧테드 (KOSTEDX)</h1>
+        <p>대한민국 고등학생 박준수가 창제한 독창적 교착어 구조의 인공어</p>
+    </div>
+
+    <h2>1. 언어 개요 및 기본 정보</h2>
+    <table class="info-table">
+        <tr>
+            <td class="label-cell">유형</td>
+            <td>교착어</td>
+            <td class="label-cell">어순</td>
+            <td>주어-서술어-목적어 (SVO)</td>
+        </tr>
+        <tr>
+            <td class="label-cell">서자 방향</td>
+            <td>좌횡서 (왼쪽부터 가로쓰기)</td>
+            <td class="label-cell">문자</td>
+            <td>로마자, 콧테드자 (1:1 대응)</td>
+        </tr>
+        <tr>
+            <td class="label-cell">원어민 / 사용자</td>
+            <td>1명 / 1명 (창제자)</td>
+            <td class="label-cell">영어 명칭</td>
+            <td>Kotted</td>
+        </tr>
+    </table>
+
+    <p>
+        콧테드(KOSTEDX)는 대한민국의 고등학생 박준수(Joonsoo Park)가 창제한 인공어이다. KOSTEDX는 그 이름 자체로 '언어'라는 뜻을 지니며 평소에 한국어와 영어를 공부하면서 느꼈던 불편함을 간접적으로 해소하기 위해서 만들어졌다. 2026년 주변 친구들에게 언어 창작 사실을 밝히면서 명세화가 시작되었다.
+    </p>
+
+    <div class="quote-box">
+        <div class="original">NAMUWIKI, MamMinE 나무 DAS nudxn rukx</div>
+        <div class="translation">나무위키, 여러분이 가꾸어 나가는 지식의 나무.</div>
+    </div>
+    
+    <div class="quote-box">
+        <div class="original">모든 인간은 태어날 때부터 자유로우며 그 존엄과 권리에 있어 동등하다...</div>
+        <div class="translation">인간은 천부적으로 이성과 양심을 부여받았으며 서로 형제애의 정신으로 행동하여야 한다.</div>
+    </div>
+
+    <p>
+        21개의 음소로 구성되어 있으며, 가장 영향을 많이 받은 언어는 한국어와 영어이다. 알파벳을 읽는 방법은 독일어를 참고했다. 발음도 쉽게 구성하기 위해 예외 없이 규정했으며, 언어마다 발음하기 어려운 음소들은 과감히 제외시켰다. 토키 보나와 마찬가지로 최소한의 단어로 최대한의 의미를 끌어내기 위해 독일어의 합성어(Komposition) 원리를 적용한 것이 특징이다. 최종 목적은 AI나 친구와 초등학생 수준의 대화를 나누는 것이다.
+    </p>
+
+    <h2>2. 문법적 특징 및 자판 매핑</h2>
+    <p>
+        한국어와 영어의 특징을 모두 갖추고 있다. 한국어처럼 어근 뒤에 <strong>품사 파생형 접미사</strong>를 붙여 각각의 품사를 정할 수 있고, 단어 뒤에 조사를 붙여 주어, 동사, 목적어를 확실하게 구분한다. 문장 구조는 영어의 통사 형식을 따라 <code>주어(S) - 동사(V) - 목적어(O)</code> 형태를 엄격하게 지킨다.
+    </p>
+    
+    <div class="code-block">
+[키보드 입력 시 입력 편의를 위한 자동 치환 예시]
+Z = J (제)
+Q = K (케)
+L = R (레)
+V = B (베)
+    </div>
+
+    <h2>3. 음운 및 문자 체계</h2>
+    
+    <h3>3.1 자음 체계 (13개)</h3>
+    <p>자음은 <span class="badge">b, d, g, h, j, k, m, n, p, r, s, t</span>가 존재하며, 받침 역할은 이 중 <span class="badge">b, g, k, m, n, r, s</span>만 수행 가능하다. 자음 뒤에 자음이 오는 형식에서는 앞의 자음을 받침으로 취급하고, 이외의 상황은 연음화하되 접미사는 연음하지 않는다.</p>
+    
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>분류</th>
+                <th class="center">양순음</th>
+                <th class="center">치경음</th>
+                <th class="center">경구개음</th>
+                <th class="center">연구개음</th>
+                <th class="center">성문음</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="label-cell">비음</td>
+                <td class="center">m</td>
+                <td class="center">n</td>
+                <td class="center">-</td>
+                <td class="center">-</td>
+                <td class="center">-</td>
+            </tr>
+            <tr>
+                <td class="label-cell">파열음</td>
+                <td class="center">p / b</td>
+                <td class="center">t / d</td>
+                <td class="center">-</td>
+                <td class="center">k / ɡ</td>
+                <td class="center">-</td>
+            </tr>
+            <tr>
+                <td class="label-cell">파찰음</td>
+                <td class="center">-</td>
+                <td class="center">c</td>
+                <td class="center">-</td>
+                <td class="center">-</td>
+                <td class="center">-</td>
+            </tr>
+            <tr>
+                <td class="label-cell">마찰음</td>
+                <td class="center">-</td>
+                <td class="center">s</td>
+                <td class="center">-</td>
+                <td class="center">-</td>
+                <td class="center">h</td>
+            </tr>
+            <tr>
+                <td class="label-cell">기타 접근/전동</td>
+                <td class="center">-</td>
+                <td class="center">r</td>
+                <td class="center">j</td>
+                <td class="center">-</td>
+                <td class="center">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>3.2 모음 체계 (8개)</h3>
+    <p>모음은 <span class="badge">a, e, i, o, u, w, x, y</span>가 규정되어 있으며, <span class="badge">w</span>와 <span class="badge">y</span>는 복모음 결합용(wa, we, ya, ye 등)으로만 제한적으로 사용된다.</p>
+
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>분류</th>
+                <th class="center">전설 평순</th>
+                <th class="center">후설 원순</th>
+                <th class="center">후설 평순</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="label-cell">고모음</td>
+                <td class="center">i</td>
+                <td class="center">u</td>
+                <td class="center">x (으) [ɯ/ɨ/ʉ]</td>
+            </tr>
+            <tr>
+                <td class="label-cell">중고모음</td>
+                <td class="center">e</td>
+                <td class="center">o</td>
+                <td class="center">-</td>
+            </tr>
+            <tr>
+                <td class="label-cell">저모음</td>
+                <td class="center">a</td>
+                <td class="center">-</td>
+                <td class="center">-</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>4. 접미사 및 조사 문법</h2>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>형용사 파생</th>
+                <th>명사 파생(단수)</th>
+                <th>명사 파생(복수)</th>
+                <th>동사 파생(현재)</th>
+                <th>동사 파생(과거)</th>
+                <th>부사 파생</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="center">-sx</td>
+                <td class="center">-dx</td>
+                <td class="center">-dxn</td>
+                <td class="center">-kx</td>
+                <td class="center">-kxn</td>
+                <td class="center">-rx</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <ul>
+        <li><strong>피동형 접미사:</strong> <code>-DI</code></li>
+        <li><strong>진행형 접미사:</strong> <code>-NIG</code> (피동 결합 시 <code>-DING</code> 형태 유지)</li>
+        <li><strong>관형격 조사:</strong> <code>-E</code></li>
+    </ul>
+
+    <h2>5. 시제 및 서법 체계 조합 예시</h2>
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th>조합 유형</th>
+                <th>능동태 형태 (기본: askx)</th>
+                <th>피동태 형태</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>단순 시제</strong></td>
+                <td>askx (현재) / askxn (과거) / ir askx (미래)</td>
+                <td>askxDI (현재) / askxnDI (과거)</td>
+            </tr>
+            <tr>
+                <td><strong>진행 시제</strong></td>
+                <td>askxNIG (현재 진행형)</td>
+                <td>askxDING (현재 진행 피동)</td>
+            </tr>
+            <tr>
+                <td><strong>완료 시제</strong></td>
+                <td>kwa askx (현재 완료형)</td>
+                <td>kwa askxDI (현재 완료 피동)</td>
+            </tr>
+            <tr>
+                <td><strong>완료 진행</strong></td>
+                <td>kwa askxNIG (현재 완료 진행형)</td>
+                <td>kwa askxDING (현재 완료 진행 피동)</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
